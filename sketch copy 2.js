@@ -1,10 +1,11 @@
 let clipiart;
 let data;
+let togglealert;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   imageMode(CENTER);
-  background (230);
+
 }
 
 
@@ -15,62 +16,74 @@ function preload(){
 }
 
 function draw(){
-
   colorMode(RGB);
 
   noStroke();
-  fill(100);
+  fill(140);
   textSize (15);
-  text("Press space key for what", 150, 200);
+  text("Press space key for what", width/2-300, height/2+75);
 
   noStroke();
-  fill(100);
+  fill(140);
   textSize (15);
-  text("Press space key for what", 150, 250);
+  text("Press space key for what", width/2-300, height/2+25);
 
   noStroke();
-  fill(100);
+  fill(140);
   textSize (15);
-  text("Press space key for what", 150, 300);
+  text("Press space key for what", width/2-300, height/2-25);
 
   noStroke();
-  fill(100);
+  fill(140);
   textSize (15);
-  text("Press space key for what", 150, 350);
+  text("Press space key for what", width/2-300, height/2-75);
 
   noStroke();
-  fill(100);
+  fill(140);
   textSize (15);
-  text("Press space key for what", 950, 200);
+  text("Press space key for what", width/2+300, height/2+75);
 
   noStroke();
-  fill(100);
+  fill(140);
   textSize (15);
-  text("Press space key for what", 950, 250);
+  text("Press space key for what", width/2+300, height/2+25);
 
   noStroke();
-  fill(100);
+  fill(140);
   textSize (15);
-  text("Press space key for what", 950, 300);
+  text("Press space key for what", width/2+300, height/2-25);
 
   noStroke();
-  fill(100);
+  fill(140);
   textSize (15);
-  text("Press space key for what", 950, 350);
+  text("Press space key for what", width/2+300, height/2-75);
 
   image(image1, width/2, height/2,500,500);
 
   colorMode(HSB);
 
   if(mouseIsPressed){
-   noStroke();
-    stroke((5*frameCount) % 360, 40, 100);
-    fill((5*frameCount) % 360, 100, 100);
+    smooth();
+    stroke((5*frameCount) % 360, 30, 100);
 
     strokeWeight(20);
     line(mouseX, mouseY, pmouseX, pmouseY);
   }
-     if(keyIsPressed){
-     image(image2, width/2, height/2, 200, 100);
-   }
+
+}
+function keyPressed()
+{
+    if (togglealert == true)
+    {
+      background(230);
+      togglealert = false;
+    }
+    else
+    {
+      togglealert = true;
+      background(30);
+      image(image2, width/2, height/2, 200, 100);
+    }
+
+    return false;
 }
